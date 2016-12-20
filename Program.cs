@@ -18,8 +18,8 @@ namespace CongNghePhanMem
             Application.SetCompatibleTextRenderingDefault(false);
             DevExpress.Skins.SkinManager.EnableFormSkins();
             DevExpress.Skins.SkinManager.EnableMdiFormSkins();
-            //Application.Run(new FormLogin());
-            Application.Run(new FormMenu(1));
+            Application.Run(new FormLogin());
+            //Application.Run(new FormMenu(1));
         }
     }
 }
