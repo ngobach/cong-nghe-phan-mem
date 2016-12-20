@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtSDT = new DevExpress.XtraEditors.TextEdit();
             this.txtAddr = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -42,16 +43,16 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtSDT = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddr.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
@@ -62,10 +63,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -78,27 +78,35 @@
             this.layoutControl1.Controls.Add(this.txtName);
             this.layoutControl1.Controls.Add(this.txtID);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 391);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 384);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1150, 550, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(560, 150);
+            this.layoutControl1.Size = new System.Drawing.Size(546, 150);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // txtSDT
+            // 
+            this.txtSDT.Location = new System.Drawing.Point(77, 84);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(457, 20);
+            this.txtSDT.StyleController = this.layoutControl1;
+            this.txtSDT.TabIndex = 10;
             // 
             // txtAddr
             // 
             this.txtAddr.Location = new System.Drawing.Point(77, 60);
             this.txtAddr.Name = "txtAddr";
-            this.txtAddr.Size = new System.Drawing.Size(471, 20);
+            this.txtAddr.Size = new System.Drawing.Size(457, 20);
             this.txtAddr.StyleController = this.layoutControl1;
             this.txtAddr.TabIndex = 9;
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Location = new System.Drawing.Point(365, 108);
+            this.simpleButton3.Location = new System.Drawing.Point(356, 108);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(183, 30);
+            this.simpleButton3.Size = new System.Drawing.Size(178, 30);
             this.simpleButton3.StyleController = this.layoutControl1;
             this.simpleButton3.TabIndex = 8;
             this.simpleButton3.Text = "Xóa";
@@ -106,9 +114,9 @@
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(219, 108);
+            this.simpleButton2.Location = new System.Drawing.Point(214, 108);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(142, 30);
+            this.simpleButton2.Size = new System.Drawing.Size(138, 30);
             this.simpleButton2.StyleController = this.layoutControl1;
             this.simpleButton2.TabIndex = 7;
             this.simpleButton2.Text = "Sửa";
@@ -118,7 +126,7 @@
             // 
             this.simpleButton1.Location = new System.Drawing.Point(12, 108);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(203, 30);
+            this.simpleButton1.Size = new System.Drawing.Size(198, 30);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 6;
             this.simpleButton1.Text = "Thêm mới";
@@ -128,7 +136,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(77, 36);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(471, 20);
+            this.txtName.Size = new System.Drawing.Size(457, 20);
             this.txtName.StyleController = this.layoutControl1;
             this.txtName.TabIndex = 5;
             // 
@@ -136,7 +144,7 @@
             // 
             this.txtID.Location = new System.Drawing.Point(77, 12);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(471, 20);
+            this.txtID.Size = new System.Drawing.Size(457, 20);
             this.txtID.StyleController = this.layoutControl1;
             this.txtID.TabIndex = 4;
             // 
@@ -154,7 +162,7 @@
             this.layoutControlItem7});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(560, 150);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(546, 150);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -162,7 +170,7 @@
             this.layoutControlItem1.Control = this.txtID;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(540, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(526, 24);
             this.layoutControlItem1.Text = "Mã độc giả";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(62, 13);
             // 
@@ -171,7 +179,7 @@
             this.layoutControlItem2.Control = this.txtName;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(540, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(526, 24);
             this.layoutControlItem2.Text = "Tên độc giả";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(62, 13);
             // 
@@ -181,7 +189,7 @@
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(56, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(207, 34);
+            this.layoutControlItem3.Size = new System.Drawing.Size(202, 34);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
@@ -189,10 +197,10 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.simpleButton2;
-            this.layoutControlItem4.Location = new System.Drawing.Point(207, 96);
+            this.layoutControlItem4.Location = new System.Drawing.Point(202, 96);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(30, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(146, 34);
+            this.layoutControlItem4.Size = new System.Drawing.Size(142, 34);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
@@ -200,10 +208,10 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.simpleButton3;
-            this.layoutControlItem5.Location = new System.Drawing.Point(353, 96);
+            this.layoutControlItem5.Location = new System.Drawing.Point(344, 96);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(29, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(187, 34);
+            this.layoutControlItem5.Size = new System.Drawing.Size(182, 34);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -213,9 +221,18 @@
             this.layoutControlItem6.Control = this.txtAddr;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(540, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(526, 24);
             this.layoutControlItem6.Text = "Địa chỉ";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(62, 13);
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.txtSDT;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(526, 24);
+            this.layoutControlItem7.Text = "Số điện thoại";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(62, 13);
             // 
             // gridControl
             // 
@@ -223,7 +240,7 @@
             this.gridControl.Location = new System.Drawing.Point(0, 0);
             this.gridControl.MainView = this.gridView1;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(560, 391);
+            this.gridControl.Size = new System.Drawing.Size(546, 384);
             this.gridControl.TabIndex = 1;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -264,23 +281,6 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
-            // txtSDT
-            // 
-            this.txtSDT.Location = new System.Drawing.Point(77, 84);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(471, 20);
-            this.txtSDT.StyleController = this.layoutControl1;
-            this.txtSDT.TabIndex = 10;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.txtSDT;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(540, 24);
-            this.layoutControlItem7.Text = "Số điện thoại";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(62, 13);
-            // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Số điện thoại";
@@ -293,7 +293,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 541);
+            this.ClientSize = new System.Drawing.Size(546, 534);
             this.Controls.Add(this.gridControl);
             this.Controls.Add(this.layoutControl1);
             this.Name = "FormDocGia";
@@ -302,6 +302,7 @@
             this.Load += new System.EventHandler(this.FormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
@@ -312,10 +313,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
         }

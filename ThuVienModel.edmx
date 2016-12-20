@@ -34,8 +34,7 @@
           <Key>
             <PropertyRef Name="masach" />
           </Key>
-          <Property Name="masach" Type="int" Nullable="false" />
-          <Property Name="nhaxb" Type="varchar" MaxLength="20" />
+          <Property Name="masach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="theloai" Type="varchar" MaxLength="20" />
           <Property Name="tacgia" Type="varchar" MaxLength="20" />
           <Property Name="tensach" Type="nvarchar" MaxLength="100" Nullable="false" />

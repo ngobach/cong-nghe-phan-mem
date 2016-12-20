@@ -15,10 +15,14 @@ namespace CongNghePhanMem
     {
         private int userID;
 
-        public FormMenu()
+        public FormMenu(int userID)
         {
             InitializeComponent();
-            this.userID = 1;
+            this.userID = userID;
+            using (var db = new ThuVien())
+            {
+                statusLabel.Caption = "Xin chào, " + db.User.First(u => u.id == userID).hoten;
+            }
         }
 
         private void PopUp(Form f)

@@ -25,7 +25,6 @@ namespace CongNghePhanMem
 
         private void Init()
         {
-            gridView.AutoGenerateColumns = false;
             LoadGrid();
 
             // Load combo boxes
@@ -39,7 +38,7 @@ namespace CongNghePhanMem
         {
             using (var db = new ThuVien())
             {
-                gridView.DataSource = db.Sach.Select(s => new { masach = s.masach, tensach = s.tensach, gioithieu = s.gioithieu, theloai = s.TheLoai.tentheloai, tacgia = s.TacGia.tentacgia }).ToList();
+                gridControl1.DataSource = db.Sach.Select(s => new { masach = s.masach, tensach = s.tensach, gioithieu = s.gioithieu, theloai = s.TheLoai.tentheloai, tacgia = s.TacGia.tentacgia }).ToList();
             }
         }
         private void FormSach_Load(object sender, EventArgs e)
@@ -85,11 +84,11 @@ namespace CongNghePhanMem
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (gridView.SelectedRows.Count > 0)
+            if (gridView1.GetFocusedRow() != null)
             {
                 using (var db = new ThuVien())
                 {
-                    var id = (int)gridView.SelectedRows[0].Cells[0].Value;
+                    var id = (int)gridView1.GetFocusedRowCellValue("masach");
                     db.Sach.Remove(db.Sach.First(s => s.masach == id));
                     db.SaveChanges();
                 }
@@ -99,11 +98,11 @@ namespace CongNghePhanMem
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (gridView.SelectedRows.Count > 0)
+            if (gridView1.GetFocusedRow() != null)
             {
                 using (var db = new ThuVien())
                 {
-                    var id = (int)gridView.SelectedRows[0].Cells[0].Value;
+                    var id = (int)gridView1.GetFocusedRowCellValue("masach");
                     var s = Current;
                     s.masach = id;
                     db.Sach.Attach(s);
@@ -116,14 +115,19 @@ namespace CongNghePhanMem
 
         private void gridView_DoubleClick(object sender, EventArgs e)
         {
-            if (gridView.SelectedRows.Count > 0)
+            if (gridView1.GetFocusedRow() != null)
             {
                 using (var db = new ThuVien())
                 {
-                    var id = (int)gridView.SelectedRows[0].Cells[0].Value;
+                    var id = (int)gridView1.GetFocusedRowCellValue("masach");
                     Current = db.Sach.First(s => s.masach == id);
                 }
             }
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            gridView1.ShowRibbonPrintPreview();
         }
     }
 }

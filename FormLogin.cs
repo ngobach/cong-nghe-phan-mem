@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace CongNghePhanMem
@@ -56,7 +55,7 @@ namespace CongNghePhanMem
                     var user = db.User.First(u => u.username == txtUsername.Text && u.password == txtPassword.Text);
                     Hide();
                     MessageBox.Show(String.Format("Đăng nhập thành công!\nXin chào {0}", user.hoten), "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    (new FormMenu()).Show();
+                    (new FormMenu(user.id)).Show();
                 }
             }
         }
