@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3eae6e88abc3417698d4423d823e8e62" Name="Diagram1">
+        <EntityTypeShape EntityType="CNPMModel.DocGia" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.PhieuMuon" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.Sach" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.TacGia" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.TheLoai" Width="1.5" PointX="11.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.User" Width="1.5" PointX="11.375" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="CNPMModel.fk_PhieuMuon_DocGia_1" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.fk_Sach_TacGia_1" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.fk_Sach_TheLoai_1" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.CTPhieuMuon" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

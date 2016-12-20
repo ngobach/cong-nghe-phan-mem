@@ -16,7 +16,10 @@ namespace CongNghePhanMem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSach());
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.Skins.SkinManager.EnableMdiFormSkins();
+            //Application.Run(new FormLogin());
+            Application.Run(new FormMenu());
         }
     }
 }

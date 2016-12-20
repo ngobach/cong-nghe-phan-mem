@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Data;
 using System.Data.SqlClient;
-using Dapper;
 
 namespace CongNghePhanMem
 {
@@ -46,22 +45,17 @@ namespace CongNghePhanMem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = DB.GetConnection())
+            using (var db = new ThuVien())
             {
-                var query = con.Query("SELECT * FROM [User] WHERE username=@username AND password=@password", new
+                if (!db.User.Any(u => u.username == txtUsername.Text && u.password == txtPassword.Text))
                 {
-                    username = txtUsername.Text,
-                    password = txtPassword.Text
-                });
-                if (query.Count() == 0)
-                {
-                    MessageBox.Show("Đăng nhập không thành công !","Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Đăng nhập không thành công !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 else
                 {
+                    var user = db.User.First(u => u.username == txtUsername.Text && u.password == txtPassword.Text);
                     Hide();
-                    var user = query.First();
-                    MessageBox.Show(String.Format("Đăng nhập thành công!\nXin chào {0}", user.hoten) , "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(String.Format("Đăng nhập thành công!\nXin chào {0}", user.hoten), "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     (new FormMenu()).Show();
                 }
             }

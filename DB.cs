@@ -10,7 +10,7 @@ namespace CongNghePhanMem
 {
     public class DB
     {
-        private const string CONNECTION_STRING = "Server=(local)\\SQLEXPRESS;Database=thuvien;UID=sa;Pwd=123456";
+        private const string CONNECTION_STRING = "Server=(local);Database=CNPM;UID=sa;Pwd=123456";
         
         public static SqlConnection GetConnection()
         {

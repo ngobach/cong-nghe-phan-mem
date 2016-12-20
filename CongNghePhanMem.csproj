@@ -32,12 +32,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper">
-      <HintPath>packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +69,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB.cs" />
+    <Compile Include="DocGia.cs">
+      <DependentUpon>ThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDoiMatKhau.Designer.cs">
+      <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,23 +90,111 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMenuOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenuOld.Designer.cs">
+      <DependentUpon>FormMenuOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPhieuMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPhieuMuon.Designer.cs">
+      <DependentUpon>FormPhieuMuon.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSach.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSach.Designer.cs">
       <DependentUpon>FormSach.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocGia.Designer.cs">
+      <DependentUpon>FormDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTacGia.Designer.cs">
+      <DependentUpon>FormTacGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTheLoai.Designer.cs">
+      <DependentUpon>FormTheLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuMuon.cs">
+      <DependentUpon>ThuVienModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sach.cs">
+      <DependentUpon>ThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TacGia.cs">
+      <DependentUpon>ThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TheLoai.cs">
+      <DependentUpon>ThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThuVienModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThuVienModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThuVienModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThuVienModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThuVienModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThuVienModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>ThuVienModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormDoiMatKhau.resx">
+      <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMenuOld.resx">
+      <DependentUpon>FormMenuOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPhieuMuon.resx">
+      <DependentUpon>FormPhieuMuon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSach.resx">
       <DependentUpon>FormSach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDocGia.resx">
+      <DependentUpon>FormDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTacGia.resx">
+      <DependentUpon>FormTacGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTheLoai.resx">
+      <DependentUpon>FormTheLoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -97,9 +214,32 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="ThuVienModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ThuVienModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ThuVienModel.edmx.diagram">
+      <DependentUpon>ThuVienModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ThuVienModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ThuVienModel.edmx</DependentUpon>
+      <LastGenOutput>ThuVienModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ThuVienModel.edmx.sql" />
+    <Content Include="ThuVienModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ThuVienModel.edmx</DependentUpon>
+      <LastGenOutput>ThuVienModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

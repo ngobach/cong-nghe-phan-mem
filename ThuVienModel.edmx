@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CNPMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CTPhieuMuon">
+          <Key>
+            <PropertyRef Name="PhieuMuon_maphieumuon" />
+            <PropertyRef Name="Sach_masach" />
+          </Key>
+          <Property Name="PhieuMuon_maphieumuon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Sach_masach" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocGia">
+          <Key>
+            <PropertyRef Name="madocgia" />
+          </Key>
+          <Property Name="madocgia" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="sodienthoai" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhieuMuon">
+          <Key>
+            <PropertyRef Name="maphieumuon" />
+          </Key>
+          <Property Name="maphieumuon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nguoimuon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ngaymuon" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sach">
+          <Key>
+            <PropertyRef Name="masach" />
+          </Key>
+          <Property Name="masach" Type="int" Nullable="false" />
+          <Property Name="nhaxb" Type="varchar" MaxLength="20" />
+          <Property Name="theloai" Type="varchar" MaxLength="20" />
+          <Property Name="tacgia" Type="varchar" MaxLength="20" />
+          <Property Name="tensach" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="gioithieu" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="sotrang" Type="int" Nullable="false" />
+          <Property Name="giatien" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TacGia">
+          <Key>
+            <PropertyRef Name="matacgia" />
+          </Key>
+          <Property Name="matacgia" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tentacgia" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="gioithieu" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TheLoai">
+          <Key>
+            <PropertyRef Name="matheloai" />
+          </Key>
+          <Property Name="matheloai" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tentheloai" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="gioitinh" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="sodienthoai" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="quequan" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CTPhieuMuon_PhieuMuon">
+          <End Role="PhieuMuon" Type="Self.PhieuMuon" Multiplicity="1" />
+          <End Role="CTPhieuMuon" Type="Self.CTPhieuMuon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhieuMuon">
+              <PropertyRef Name="maphieumuon" />
+            </Principal>
+            <Dependent Role="CTPhieuMuon">
+              <PropertyRef Name="PhieuMuon_maphieumuon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPhieuMuon_Sach">
+          <End Role="Sach" Type="Self.Sach" Multiplicity="1" />
+          <End Role="CTPhieuMuon" Type="Self.CTPhieuMuon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sach">
+              <PropertyRef Name="masach" />
+            </Principal>
+            <Dependent Role="CTPhieuMuon">
+              <PropertyRef Name="Sach_masach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PhieuMuon_DocGia_1">
+          <End Role="DocGia" Type="Self.DocGia" Multiplicity="1" />
+          <End Role="PhieuMuon" Type="Self.PhieuMuon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocGia">
+              <PropertyRef Name="madocgia" />
+            </Principal>
+            <Dependent Role="PhieuMuon">
+              <PropertyRef Name="nguoimuon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sach_TacGia_1">
+          <End Role="TacGia" Type="Self.TacGia" Multiplicity="0..1" />
+          <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TacGia">
+              <PropertyRef Name="matacgia" />
+            </Principal>
+            <Dependent Role="Sach">
+              <PropertyRef Name="tacgia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sach_TheLoai_1">
+          <End Role="TheLoai" Type="Self.TheLoai" Multiplicity="0..1" />
+          <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TheLoai">
+              <PropertyRef Name="matheloai" />
+            </Principal>
+            <Dependent Role="Sach">
+              <PropertyRef Name="theloai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CNPMModelStoreContainer">
+          <EntitySet Name="CTPhieuMuon" EntityType="Self.CTPhieuMuon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocGia" EntityType="Self.DocGia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhieuMuon" EntityType="Self.PhieuMuon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sach" EntityType="Self.Sach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TacGia" EntityType="Self.TacGia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TheLoai" EntityType="Self.TheLoai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CTPhieuMuon_PhieuMuon" Association="Self.FK_CTPhieuMuon_PhieuMuon">
+            <End Role="PhieuMuon" EntitySet="PhieuMuon" />
+            <End Role="CTPhieuMuon" EntitySet="CTPhieuMuon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPhieuMuon_Sach" Association="Self.FK_CTPhieuMuon_Sach">
+            <End Role="Sach" EntitySet="Sach" />
+            <End Role="CTPhieuMuon" EntitySet="CTPhieuMuon" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PhieuMuon_DocGia_1" Association="Self.fk_PhieuMuon_DocGia_1">
+            <End Role="DocGia" EntitySet="DocGia" />
+            <End Role="PhieuMuon" EntitySet="PhieuMuon" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sach_TacGia_1" Association="Self.fk_Sach_TacGia_1">
+            <End Role="TacGia" EntitySet="TacGia" />
+            <End Role="Sach" EntitySet="Sach" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sach_TheLoai_1" Association="Self.fk_Sach_TheLoai_1">
+            <End Role="TheLoai" EntitySet="TheLoai" />
+            <End Role="Sach" EntitySet="Sach" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CNPMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DocGia">
+          <Key>
+            <PropertyRef Name="madocgia" />
+          </Key>
+          <Property Name="madocgia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="diachi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sodienthoai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PhieuMuon" Relationship="Self.fk_PhieuMuon_DocGia_1" FromRole="DocGia" ToRole="PhieuMuon" />
+        </EntityType>
+        <EntityType Name="PhieuMuon">
+          <Key>
+            <PropertyRef Name="maphieumuon" />
+          </Key>
+          <Property Name="maphieumuon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nguoimuon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ngaymuon" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DocGia" Relationship="Self.fk_PhieuMuon_DocGia_1" FromRole="PhieuMuon" ToRole="DocGia" />
+          <NavigationProperty Name="Sach" Relationship="Self.CTPhieuMuon" FromRole="PhieuMuon" ToRole="Sach" />
+        </EntityType>
+        <EntityType Name="Sach">
+          <Key>
+            <PropertyRef Name="masach" />
+          </Key>
+          <Property Name="masach" Type="Int32" Nullable="false" />
+          <Property Name="theloai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tacgia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tensach" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gioithieu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sotrang" Type="Int32" Nullable="false" />
+          <Property Name="giatien" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="TacGia" Relationship="Self.fk_Sach_TacGia_1" FromRole="Sach" ToRole="TacGia" />
+          <NavigationProperty Name="TheLoai" Relationship="Self.fk_Sach_TheLoai_1" FromRole="Sach" ToRole="TheLoai" />
+          <NavigationProperty Name="PhieuMuon" Relationship="Self.CTPhieuMuon" FromRole="Sach" ToRole="PhieuMuon" />
+        </EntityType>
+        <EntityType Name="TacGia">
+          <Key>
+            <PropertyRef Name="matacgia" />
+          </Key>
+          <Property Name="matacgia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tentacgia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gioithieu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Sach" Relationship="Self.fk_Sach_TacGia_1" FromRole="TacGia" ToRole="Sach" />
+        </EntityType>
+        <EntityType Name="TheLoai">
+          <Key>
+            <PropertyRef Name="matheloai" />
+          </Key>
+          <Property Name="matheloai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tentheloai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Sach" Relationship="Self.fk_Sach_TheLoai_1" FromRole="TheLoai" ToRole="Sach" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gioitinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sodienthoai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="quequan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_PhieuMuon_DocGia_1">
+          <End Role="DocGia" Type="Self.DocGia" Multiplicity="1" />
+          <End Role="PhieuMuon" Type="Self.PhieuMuon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocGia">
+              <PropertyRef Name="madocgia" />
+            </Principal>
+            <Dependent Role="PhieuMuon">
+              <PropertyRef Name="nguoimuon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sach_TacGia_1">
+          <End Role="TacGia" Type="Self.TacGia" Multiplicity="0..1" />
+          <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TacGia">
+              <PropertyRef Name="matacgia" />
+            </Principal>
+            <Dependent Role="Sach">
+              <PropertyRef Name="tacgia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Sach_TheLoai_1">
+          <End Role="TheLoai" Type="Self.TheLoai" Multiplicity="0..1" />
+          <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TheLoai">
+              <PropertyRef Name="matheloai" />
+            </Principal>
+            <Dependent Role="Sach">
+              <PropertyRef Name="theloai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CTPhieuMuon">
+          <End Role="PhieuMuon" Type="Self.PhieuMuon" Multiplicity="*" />
+          <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ThuVien" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DocGia" EntityType="Self.DocGia" />
+          <EntitySet Name="PhieuMuon" EntityType="Self.PhieuMuon" />
+          <EntitySet Name="Sach" EntityType="Self.Sach" />
+          <EntitySet Name="TacGia" EntityType="Self.TacGia" />
+          <EntitySet Name="TheLoai" EntityType="Self.TheLoai" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="fk_PhieuMuon_DocGia_1" Association="Self.fk_PhieuMuon_DocGia_1">
+            <End Role="DocGia" EntitySet="DocGia" />
+            <End Role="PhieuMuon" EntitySet="PhieuMuon" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sach_TacGia_1" Association="Self.fk_Sach_TacGia_1">
+            <End Role="TacGia" EntitySet="TacGia" />
+            <End Role="Sach" EntitySet="Sach" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Sach_TheLoai_1" Association="Self.fk_Sach_TheLoai_1">
+            <End Role="TheLoai" EntitySet="TheLoai" />
+            <End Role="Sach" EntitySet="Sach" />
+          </AssociationSet>
+          <AssociationSet Name="CTPhieuMuon" Association="Self.CTPhieuMuon">
+            <End Role="PhieuMuon" EntitySet="PhieuMuon" />
+            <End Role="Sach" EntitySet="Sach" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CNPMModelStoreContainer" CdmEntityContainer="ThuVien">
+    <EntitySetMapping Name="DocGia">
+      <EntityTypeMapping TypeName="IsTypeOf(CNPMModel.DocGia)">
+        <MappingFragment StoreEntitySet="DocGia">
+          <ScalarProperty Name="madocgia" ColumnName="madocgia" />
+          <ScalarProperty Name="hoten" ColumnName="hoten" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="sodienthoai" ColumnName="sodienthoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuMuon">
+      <EntityTypeMapping TypeName="IsTypeOf(CNPMModel.PhieuMuon)">
+        <MappingFragment StoreEntitySet="PhieuMuon">
+          <ScalarProperty Name="maphieumuon" ColumnName="maphieumuon" />
+          <ScalarProperty Name="nguoimuon" ColumnName="nguoimuon" />
+          <ScalarProperty Name="ngaymuon" ColumnName="ngaymuon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sach">
+      <EntityTypeMapping TypeName="IsTypeOf(CNPMModel.Sach)">
+        <MappingFragment StoreEntitySet="Sach">
+          <ScalarProperty Name="masach" ColumnName="masach" />
+          <ScalarProperty Name="theloai" ColumnName="theloai" />
+          <ScalarProperty Name="tacgia" ColumnName="tacgia" />
+          <ScalarProperty Name="tensach" ColumnName="tensach" />
+          <ScalarProperty Name="gioithieu" ColumnName="gioithieu" />
+          <ScalarProperty Name="sotrang" ColumnName="sotrang" />
+          <ScalarProperty Name="giatien" ColumnName="giatien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TacGia">
+      <EntityTypeMapping TypeName="IsTypeOf(CNPMModel.TacGia)">
+        <MappingFragment StoreEntitySet="TacGia">
+          <ScalarProperty Name="matacgia" ColumnName="matacgia" />
+          <ScalarProperty Name="tentacgia" ColumnName="tentacgia" />
+          <ScalarProperty Name="gioithieu" ColumnName="gioithieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TheLoai">
+      <EntityTypeMapping TypeName="IsTypeOf(CNPMModel.TheLoai)">
+        <MappingFragment StoreEntitySet="TheLoai">
+          <ScalarProperty Name="matheloai" ColumnName="matheloai" />
+          <ScalarProperty Name="tentheloai" ColumnName="tentheloai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(CNPMModel.User)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="hoten" ColumnName="hoten" />
+          <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+          <ScalarProperty Name="sodienthoai" ColumnName="sodienthoai" />
+          <ScalarProperty Name="quequan" ColumnName="quequan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CTPhieuMuon" TypeName="CNPMModel.CTPhieuMuon" StoreEntitySet="CTPhieuMuon">
+      <EndProperty Name="PhieuMuon">
+        <ScalarProperty Name="maphieumuon" ColumnName="PhieuMuon_maphieumuon" />
+      </EndProperty>
+      <EndProperty Name="Sach">
+        <ScalarProperty Name="masach" ColumnName="Sach_masach" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
